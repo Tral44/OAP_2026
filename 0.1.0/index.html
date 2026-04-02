@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Сервіс реєстрації на захід</title>
+
+  <link rel="stylesheet" href="styles.css"></link>
+
+</head>
+
+
+<body>
+  <h1>Rеєстрації на захід (Варіант 7)</h1>
+
+  <div class="layout">
+
+    <form id="eventForm">
+      <h3 id="formTitle">Додати подію</h3>
+
+      <div class="form-group">
+        <label for="title">Назва події</label>
+        <input id="title" type="text">
+        <div class="error" id="titleError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Дата</label>
+        <input id="date" type="date">
+        <div class="error" id="dateError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Місце проведення</label>
+        <input id="location" type="text">
+        <div class="error" id="locationError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="capacity">Кількість місць</label>
+        <input id="capacity" type="number" min="1">
+        <div class="error" id="capacityError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Опис</label>
+        <textarea id="description" rows="3"></textarea>
+      </div>
+
+      <button type="submit">Зберегти</button>
+      <button type="button" id="cancelEdit">Скасувати</button>
+    </form>
+
+    <div class="list-section">
+      <h3>Список подій</h3>
+
+      <input type="text" id="search" placeholder="Пошук за назвою...">
+
+      <select id="sortSelect">
+        <option value="">Без сортування</option>
+        <option value="date">За датою</option>
+        <option value="capacity">За кількістю місць</option>
+      </select>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Назва події</th>
+            <th>Дата</th>
+            <th>Місце проведення</th>
+            <th>Кількість місць</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody id="eventTableBody"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src = "app.js"></script>
+</body>
+</html>
