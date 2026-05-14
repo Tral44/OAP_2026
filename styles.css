@@ -1,0 +1,135 @@
+body {
+  font-family:      'Times New Roman', sans-serif;
+  background-color: rgba(196, 193, 21, 0.705);
+  margin:           20px;
+}
+
+h1 {
+  text-align:       center;
+}
+
+h2.section-title {
+  text-align:       center;
+  font-size:        24px;
+  margin-top:       10px;
+  margin-bottom:    10px;
+}
+
+h3 {
+  text-align:       center;
+  font-size:        22px;
+}
+
+.layout {
+  display:          flex;
+  gap:              30px;
+  align-items:      flex-start;
+}
+
+form {
+  flex:             1;
+  padding:          15px;
+  padding-top:      2px;
+  background-color: rgb(255, 255, 255);
+  border:           2px solid #494949;
+  border-radius:    5px;
+}
+
+.list-section {
+  flex:             2;
+  padding:          15px;
+  padding-top:      2px;
+  background-color: rgb(255, 255, 255);
+  border:           2px solid #494949;
+  border-radius:    6px;
+}
+
+.form-group {
+  margin-bottom:    10px;
+  display:          flex;
+  flex-direction:   column;
+  box-sizing:       border-box;
+}
+
+label {
+  margin-bottom:    4px;
+}
+
+input, textarea, select {
+  padding:          6px;
+  font-size:        14px;
+}
+
+.error {
+  color:            red;
+  font-size:        13px;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+table {
+  width:            100%;
+  border-collapse:  collapse;
+  margin-top:       10px;
+}
+
+th, td {
+  border:           1px solid #000000;
+  padding:          7px;
+  text-align:       left;
+}
+
+th {
+  background:       #ebe9e9;
+}
+
+th.sortable {
+  cursor:           pointer;
+  user-select:      none;
+}
+
+th.sortable:hover {
+  background:       #d6d4d4;
+}
+
+.sort-arrow {
+  font-size:        11px;
+  margin-left:      4px;
+  color:            #555;
+}
+
+button {
+  margin-right:     6px;
+  cursor:           pointer;
+  border:           2px solid #181818b1;
+  padding:          7px;
+  border-radius:    20px;
+  font-size:        14px;
+}
+
+.buttoncancel {
+  background-color: rgba(254, 115, 102, 0.349);
+}
+
+.buttonsave {
+  background-color: rgba(102, 254, 135, 0.453);
+}
+
+.buttondelete {
+  background-color: rgba(254, 115, 102, 0.349);
+}
+
+.buttonediting {
+  background-color: rgba(114, 237, 243, 0.189);
+}
+
+.editing-row {
+  background-color: rgba(203, 254, 102, 0.349);
+}
+
+.section-divider {
+  border-top:       2px dashed #49494966;
+  margin:           30px 0 20px 0;
+}

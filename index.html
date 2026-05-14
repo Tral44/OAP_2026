@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Сервіс реєстрації на захід</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Реєстрація на захід</h1>
+
+  <div class="layout">
+
+    <form id="eventForm">
+      <h3 id="formTitle">Додати подію</h3>
+
+      <div class="form-group">
+        <label for="title">Назва події</label>
+        <input id="title" type="text">
+        <div class="error" id="titleError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Дата</label>
+        <input id="date" type="date">
+        <div class="error" id="dateError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Місце проведення</label>
+        <input id="location" type="text">
+        <div class="error" id="locationError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="capacity">Кількість місць</label>
+        <input id="capacity" type="number" min="1">
+        <div class="error" id="capacityError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Опис</label>
+        <textarea id="description" rows="3"></textarea>
+      </div>
+
+      <button type="submit" class="buttonsave">Зберегти</button>
+      <button type="button" class="buttoncancel" id="cancelEdit">Скасувати</button>
+    </form>
+
+    <div class="list-section">
+      <h3>Список подій</h3>
+      <input type="text" id="search" placeholder="Пошук за назвою...">
+
+      <table id="eventTable">
+        <thead>
+          <tr>
+            <th data-col="title" class="sortable">Назва події <span class="sort-arrow"></span></th>
+            <th data-col="date" class="sortable">Дата <span class="sort-arrow"></span></th>
+            <th data-col="location" class="sortable">Місце проведення <span class="sort-arrow"></span></th>
+            <th data-col="capacity" class="sortable">Кількість місць <span class="sort-arrow"></span></th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody id="eventTableBody"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+  <div class="section-divider"></div>
+
+  <h2 class="section-title">Користувачі</h2>
+
+  <div class="layout">
+
+    <form id="userForm">
+      <h3 id="userFormTitle">Додати користувача</h3>
+
+      <div class="form-group">
+        <label for="userName">Ім'я</label>
+        <input id="userName" type="text">
+        <div class="error" id="userNameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="userEmail">Email</label>
+        <input id="userEmail" type="text">
+        <div class="error" id="userEmailError"></div>
+      </div>
+
+      <button type="submit" class="buttonsave">Додати</button>
+      <button type="button" class="buttoncancel" id="cancelUserEdit">Скасувати</button>
+    </form>
+
+    <div class="list-section">
+      <h3>Список користувачів</h3>
+
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th data-col="name" class="sortable">Ім'я <span class="sort-arrow"></span></th>
+            <th data-col="email" class="sortable">Email <span class="sort-arrow"></span></th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
