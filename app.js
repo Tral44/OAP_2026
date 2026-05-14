@@ -1,3 +1,4 @@
+
 'use strict';
 
 const EVENTS_KEY = 'EventsStorage';
@@ -418,3 +419,4 @@ loadEvents();
 loadUsers();
 renderEvents();
 renderUsers();
+
