@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAB 3 OPCL — Сервіс реєстрації на події</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Сервіс реєстрації на події</h1>
+        <p class="subtitle">Варіант 7 — Лабораторна робота №3 (SQLite)</p>
+      </header>
+
+      <main>
+        <section id="events-section">
+          <h2>Події</h2>
+
+          <form id="eventForm">
+            <h3 id="eventFormTitle">Додати подію</h3>
+
+            <div class="field">
+              <label for="eventTitle">Назва події</label>
+              <input id="eventTitle" type="text" required minlength="2" />
+              <p class="error-text" id="eventTitleError"></p>
+            </div>
+
+            <div class="field">
+              <label for="eventDate">Дата</label>
+              <input id="eventDate" type="date" required />
+              <p class="error-text" id="eventDateError"></p>
+            </div>
+
+            <div class="field">
+              <label for="eventLocation">Місце проведення</label>
+              <input id="eventLocation" type="text" required minlength="2" />
+              <p class="error-text" id="eventLocationError"></p>
+            </div>
+
+            <div class="field">
+              <label for="eventCapacity">Кількість місць</label>
+              <input id="eventCapacity" type="number" min="1" required />
+              <p class="error-text" id="eventCapacityError"></p>
+            </div>
+
+            <div class="field">
+              <label for="eventDescription">Опис</label>
+              <textarea id="eventDescription" rows="3"></textarea>
+            </div>
+
+            <div class="buttons">
+              <button type="submit" class="btn-save">Зберегти</button>
+              <button type="button" class="btn-cancel" id="cancelEventEdit" style="display: none">Скасувати</button>
+            </div>
+          </form>
+
+          <div class="toolbar">
+            <input type="text" id="eventSearch" placeholder="Пошук за назвою..." />
+            <span class="toolbar-info" id="eventCount">0 подій</span>
+          </div>
+
+          <div class="table-wrapper">
+            <table id="eventTable">
+              <thead>
+                <tr>
+                  <th data-col="title" class="sortable">Назва <span class="sort-arrow"></span></th>
+                  <th data-col="date" class="sortable">Дата <span class="sort-arrow"></span></th>
+                  <th data-col="location" class="sortable">Місце <span class="sort-arrow"></span></th>
+                  <th data-col="capacity" class="sortable">Місць <span class="sort-arrow"></span></th>
+                  <th>Зареєстровано</th>
+                  <th data-col="createdAt" class="sortable">Створено <span class="sort-arrow"></span></th>
+                  <th>Дії</th>
+                </tr>
+              </thead>
+              <tbody id="eventTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="pagination" id="eventPagination"></div>
+        </section>
+
+        <hr class="divider" />
+
+        <section id="users-section">
+          <h2>Користувачі</h2>
+
+          <form id="userForm">
+            <h3 id="userFormTitle">Додати користувача</h3>
+
+            <div class="field">
+              <label for="userName">Ім'я</label>
+              <input id="userName" type="text" required minlength="2" />
+              <p class="error-text" id="userNameError"></p>
+            </div>
+
+            <div class="field">
+              <label for="userEmail">Email</label>
+              <input id="userEmail" type="email" required />
+              <p class="error-text" id="userEmailError"></p>
+            </div>
+
+            <div class="buttons">
+              <button type="submit" class="btn-save">Додати</button>
+              <button type="button" class="btn-cancel" id="cancelUserEdit" style="display: none">Скасувати</button>
+            </div>
+          </form>
+
+          <div class="toolbar">
+            <input type="text" id="userSearch" placeholder="Пошук за ім'ям або email..." />
+            <span class="toolbar-info" id="userCount">0 користувачів</span>
+          </div>
+
+          <div class="table-wrapper">
+            <table id="userTable">
+              <thead>
+                <tr>
+                  <th data-col="name" class="sortable">Ім'я <span class="sort-arrow"></span></th>
+                  <th data-col="email" class="sortable">Email <span class="sort-arrow"></span></th>
+                  <th data-col="createdAt" class="sortable">Створено <span class="sort-arrow"></span></th>
+                  <th>Дії</th>
+                </tr>
+              </thead>
+              <tbody id="userTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <hr class="divider" />
+
+        <section id="registrations-section">
+          <h2>Реєстрації на події</h2>
+
+          <form id="registrationForm">
+            <h3>Зареєструвати користувача на подію</h3>
+
+            <div class="field">
+              <label for="regEventSelect">Подія</label>
+              <select id="regEventSelect" required>
+                <option value="">Оберіть подію</option>
+              </select>
+              <p class="error-text" id="regEventError"></p>
+            </div>
+
+            <div class="field">
+              <label for="regUserSelect">Користувач</label>
+              <select id="regUserSelect" required>
+                <option value="">Оберіть користувача</option>
+              </select>
+              <p class="error-text" id="regUserError"></p>
+            </div>
+
+            <div class="buttons">
+              <button type="submit" class="btn-save">Зареєструвати</button>
+            </div>
+          </form>
+
+          <div class="toolbar">
+            <span class="toolbar-info" id="registrationCount">0 реєстрацій</span>
+          </div>
+
+          <div class="table-wrapper">
+            <table id="registrationTable">
+              <thead>
+                <tr>
+                  <th>Користувач</th>
+                  <th>Email</th>
+                  <th>Подія</th>
+                  <th>Дата реєстрації</th>
+                  <th>Дії</th>
+                </tr>
+              </thead>
+              <tbody id="registrationTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>LAB 3 OPCL v — Об'єднаний проєкт (CL + OP) &copy; 2026</p>
+      </footer>
+    </div>
+  </body>
+</html>

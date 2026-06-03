@@ -1,0 +1,302 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+}
+
+section {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+section h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #4361ee;
+}
+
+form {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+form h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #4361ee;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #4361ee;
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.15);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.error-text {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #d90429;
+  min-height: 16px;
+}
+
+.invalid {
+  border-color: #d90429 !important;
+}
+
+.buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.btn-save {
+  background: #4361ee;
+  color: #fff;
+  border-color: #4361ee;
+}
+
+.btn-cancel {
+  background: #e0e0e0;
+  border-color: #bbb;
+}
+
+.btn-edit {
+  background: #4cc9f0;
+  color: #fff;
+  border-color: #4cc9f0;
+}
+
+.btn-delete {
+  background: #d90429;
+  color: #fff;
+  border-color: #d90429;
+}
+
+.btn-danger {
+  background: #d90429;
+  color: #fff;
+  border-color: #d90429;
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.toolbar input {
+  flex: 1;
+  max-width: 300px;
+  padding: 6px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.toolbar-info {
+  font-size: 13px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: #f0f2f5;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+th.sortable:hover {
+  background: #e2e5ea;
+}
+
+.sort-arrow {
+  font-size: 10px;
+  margin-left: 4px;
+  color: #888;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.editing-row {
+  background: #e8f4f8 !important;
+}
+
+.divider {
+  border: 0;
+  border-top: 2px dashed #ddd;
+  margin: 24px 0;
+}
+
+footer {
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+  padding: 16px 0;
+}
+
+.empty-row td {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 24px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pagination button {
+  padding: 4px 12px;
+  font-size: 13px;
+}
+
+.pagination span {
+  font-size: 13px;
+  color: #666;
+}
+
+.message {
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.message-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.registration-count {
+  display: inline-block;
+  background: #e2e5ea;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.registration-count.full {
+  background: #f8d7da;
+  color: #721c24;
+}
