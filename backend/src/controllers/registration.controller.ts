@@ -1,0 +1,65 @@
+import { Request, Response, NextFunction } from "express";
+import { registrationService } from "../services/registration.service.js";
+
+export const registrationController = {
+  async getAll(req: Request, res: Response, next: NextFunction) {
+    try {
+      const params: { eventId?: number; userId?: number; page?: number; pageSize?: number } = {};
+      if (req.query.eventId) params.eventId = Number(req.query.eventId);
+      params.page = req.query.page ? Number(req.query.page) : 1;
+      params.pageSize = req.query.pageSize ? Number(req.query.pageSize) : 10;
+      res.status(200).json(await registrationService.getAll(req.user!.id, params));
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  async getById(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.status(200).json(await registrationService.getById(Number(req.params.id), req.user!.id));
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  async getByEvent(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.status(200).json(await registrationService.getByEvent(Number(req.params.eventId), req.user!.id));
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  async create(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.status(201).json(await registrationService.create(req.body, req.user!.id));
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.status(200).json(await registrationService.update(Number(req.params.id), req.body, req.user!.id));
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  async patch(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.status(200).json(await registrationService.patch(Number(req.params.id), req.body, req.user!.id));
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  async delete(req: Request, res: Response, next: NextFunction) {
+    try {
+      await registrationService.delete(Number(req.params.id), req.user!.id);
+      res.status(204).send();
+    } catch (e) {
+      next(e);
+    }
+  },
+};
